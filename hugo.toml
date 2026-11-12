@@ -1,0 +1,3 @@
+baseURL = 'https://happyguozf.github.io/dailynews/'
+languageCode = 'zh-cn'
+title = 'Daily News'
