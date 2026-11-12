@@ -1,13 +1,8 @@
 {{ define "main" }}
-  <main>
-    <h1>{{ .Site.Title }}</h1>
-    {{ range where .Site.RegularPages "Section" "posts" }}
-      <article>
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
-      </article>
-    {{ else }}
-      <p>No posts yet.</p>
-    {{ end }}
+  <main class="home-page">
+    <section class="hero"><div><p class="eyebrow"><span class="status-dot"></span> NOTES ON TECHNOLOGY</p><h1>记录技术，<br><em>也记录思考。</em></h1><p class="hero-description">关于 AI、开发工具与实践的笔记。慢一点，深入一点，把复杂的问题讲清楚。</p><a class="hero-link" href="#latest">阅读最新文章 ↘</a></div><div class="hero-aside" aria-hidden="true"><span>IDEAS<br>IN<br>PROGRESS<span class="aside-dot">.</span></span><small>THINK · BUILD · SHARE</small></div></section>
+    <section class="latest" id="latest"><div class="section-heading"><div><p class="eyebrow">THE JOURNAL</p><h2>最新文章<span class="accent">.</span></h2></div><span class="section-caption">探索、实践与分享</span></div><div class="post-list">
+      {{ range where site.RegularPages "Section" "posts" }}<article class="post-card"><div class="post-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ with .Params.tags }}<span>/</span><span>{{ index . 0 }}</span>{{ end }}</div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Summary | plainify | truncate 170 }}</p><div class="post-bottom"><span>{{ with .Params.author }}{{ . }} · {{ end }}{{ .ReadingTime }} 分钟阅读</span><a href="{{ .RelPermalink }}" aria-label="阅读 {{ .Title }}">阅读全文 ↗</a></div></article>{{ else }}<p>第一篇文章正在路上。</p>{{ end }}
+    </div></section>
   </main>
 {{ end }}
