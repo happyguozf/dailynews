@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <main>
+    <h1>{{ .Site.Title }}</h1>
+    {{ range where .Site.RegularPages "Section" "posts" }}
+      <article>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      </article>
+    {{ else }}
+      <p>No posts yet.</p>
+    {{ end }}
+  </main>
+{{ end }}

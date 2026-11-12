@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <main>
+    <article>
+      <h1>{{ .Title }}</h1>
+      <p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>{{ with .Params.author }} · {{ . }}{{ end }}</p>
+      {{ with .Params.tags }}<p>Tags: {{ delimit . ", " }}</p>{{ end }}
+      <div>{{ .Content }}</div>
+    </article>
+  </main>
+{{ end }}
