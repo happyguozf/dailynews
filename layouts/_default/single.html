@@ -1,10 +1,3 @@
 {{ define "main" }}
-  <main>
-    <article>
-      <h1>{{ .Title }}</h1>
-      <p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>{{ with .Params.author }} · {{ . }}{{ end }}</p>
-      {{ with .Params.tags }}<p>Tags: {{ delimit . ", " }}</p>{{ end }}
-      <div>{{ .Content }}</div>
-    </article>
-  </main>
+  <main class="article-page"><a class="back-link" href="{{ site.Home.RelPermalink }}">← 返回首页</a><article><header class="article-header"><p class="eyebrow">THE JOURNAL / ARTICLE</p><h1>{{ .Title }}</h1><div class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>{{ with .Params.author }}<span>{{ . }}</span>{{ end }}<span>{{ .ReadingTime }} 分钟阅读</span></div>{{ with .Params.tags }}<div class="tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}</header><div class="article-content">{{ .Content }}</div></article><div class="article-end"><span>✳</span><p>感谢阅读</p><a href="{{ site.Home.RelPermalink }}">← 返回所有文章</a></div></main>
 {{ end }}

@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
   </head>
   <body>
+    <header class="site-header"><div class="header-inner"><a class="brand" href="{{ site.Home.RelPermalink }}"><span class="brand-mark">D<span>.</span></span><span>Daily News<small>技术与思考</small></span></a><nav aria-label="主导航"><a href="{{ site.Home.RelPermalink }}">首页</a><a href="{{ "posts/" | relURL }}">文章</a><a href="https://github.com/happyguozf/dailynews">GitHub ↗</a></nav></div></header>
     {{ block "main" . }}{{ end }}
+    <footer class="site-footer"><div><span>© {{ now.Year }} Daily News</span><span>写给好奇的开发者 ✳</span></div></footer>
   </body>
 </html>
